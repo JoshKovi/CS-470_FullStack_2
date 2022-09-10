@@ -18,6 +18,36 @@ const hbs = require('hbs');
 
 var app = express();
 
+//Moved the JSON loads into app to only load from file once and hold in memory rather than 
+//access file each time page is navigated to (in accordance with best practice mentioned in video)
+var fs = require('fs');
+
+//Puts JSON objects into app for later reference
+//Travel
+app.set('trips', JSON.parse(fs.readFileSync('./data/trips.json', 'utf-8')));
+
+//Main
+app.set('blogs', JSON.parse(fs.readFileSync('./data/blogs.json', 'utf-8')));
+app.set('testimonial', JSON.parse(fs.readFileSync('./data/testimonial.json', 'utf-8')));
+app.set('sidebar', JSON.parse(fs.readFileSync('./data/sidebar.json', 'utf-8')));
+
+//Rooms
+app.set('rooms', JSON.parse(fs.readFileSync('./data/rooms.json', 'utf-8')));
+
+//Meals
+app.set('meals', JSON.parse(fs.readFileSync('./data/meals.json', 'utf-8')));
+
+//News
+app.set('tips', JSON.parse(fs.readFileSync('./data/tips.json', 'utf-8')));
+app.set('latest', JSON.parse(fs.readFileSync('./data/latest.json', 'utf-8')));
+app.set('article', JSON.parse(fs.readFileSync('./data/article.json', 'utf-8')));
+
+//About
+app.set('about', JSON.parse(fs.readFileSync('./data/about.json', 'utf-8')));
+
+//Contact
+app.set('contact', JSON.parse(fs.readFileSync('./data/contact.json', 'utf-8')));
+app.set('form', JSON.parse(fs.readFileSync('./data/form.json', 'utf-8')));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server','views'));
