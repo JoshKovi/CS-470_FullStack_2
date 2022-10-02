@@ -1,8 +1,13 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const hbs = require('hbs');
+
+require('./app_api/database/db');
+
+
 
 const indexRouter = require('./app_server/routes/index');
 const usersRouter = require('./app_server/routes/users');
@@ -14,9 +19,11 @@ const mealsRouter = require('./app_server/routes/meals');
 const newsRouter = require('./app_server/routes/news');
 const roomsRouter = require('./app_server/routes/rooms');
 
-const hbs = require('hbs');
+const apiRouter = require('./app_api/database/routes/index');
 
-var app = express();
+
+
+const app = express();
 
 //Moved the JSON loads into app to only load from file once and hold in memory rather than 
 //access file each time page is navigated to (in accordance with best practice mentioned in video)
@@ -24,7 +31,8 @@ var fs = require('fs');
 
 //Puts JSON objects into app for later reference
 //Travel
-app.set('trips', JSON.parse(fs.readFileSync('./data/trips.json', 'utf-8')));
+//app.set('trips', JSON.parse(fs.readFileSync('./data/trips.json', 'utf-8')));
+
 
 //Main
 app.set('blogs', JSON.parse(fs.readFileSync('./data/blogs.json', 'utf-8')));
@@ -32,18 +40,18 @@ app.set('testimonial', JSON.parse(fs.readFileSync('./data/testimonial.json', 'ut
 app.set('sidebar', JSON.parse(fs.readFileSync('./data/sidebar.json', 'utf-8')));
 
 //Rooms
-app.set('rooms', JSON.parse(fs.readFileSync('./data/rooms.json', 'utf-8')));
+// app.set('rooms', JSON.parse(fs.readFileSync('./data/rooms.json', 'utf-8')));
 
 //Meals
-app.set('meals', JSON.parse(fs.readFileSync('./data/meals.json', 'utf-8')));
+// app.set('meals', JSON.parse(fs.readFileSync('./data/meals.json', 'utf-8')));
 
 //News
-app.set('tips', JSON.parse(fs.readFileSync('./data/tips.json', 'utf-8')));
-app.set('latest', JSON.parse(fs.readFileSync('./data/latest.json', 'utf-8')));
-app.set('article', JSON.parse(fs.readFileSync('./data/article.json', 'utf-8')));
+// app.set('tips', JSON.parse(fs.readFileSync('./data/tips.json', 'utf-8')));
+// app.set('latest', JSON.parse(fs.readFileSync('./data/latest.json', 'utf-8')));
+// app.set('article', JSON.parse(fs.readFileSync('./data/article.json', 'utf-8')));
 
 //About
-app.set('about', JSON.parse(fs.readFileSync('./data/about.json', 'utf-8')));
+// app.set('about', JSON.parse(fs.readFileSync('./data/about.json', 'utf-8')));
 
 //Contact
 app.set('contact', JSON.parse(fs.readFileSync('./data/contact.json', 'utf-8')));
@@ -72,6 +80,9 @@ app.use('/error', errorRouter);
 app.use('/meals', mealsRouter);
 app.use('/news', newsRouter);
 app.use('/rooms', roomsRouter);
+
+app.use('/api', apiRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

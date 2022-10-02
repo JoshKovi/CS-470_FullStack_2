@@ -4,5 +4,5 @@ const controller = require('../controllers/meals');
 
 
 /* GET home page. */
-router.get('/', controller.meals);
+router.get('/', controller.mealList);
 module.exports = router;

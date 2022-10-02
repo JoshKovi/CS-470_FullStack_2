@@ -4,5 +4,5 @@ const ctrlMain = require('../controllers/main');
 
 
 /* GET home page. */
-router.get('/', ctrlMain.index);
+router.get('/', ctrlMain.blogList);
 module.exports = router;

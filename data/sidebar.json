@@ -1,17 +1,17 @@
-[
-    {
+{
+    "1":{
         "href":"/rooms",
         "image":"rooms.png",
         "altText":"Img"
     },
-    {
+    "2":{
         "href":"/travel",
         "image":"dive-site.png",
         "altText":"Img"
     },
-    {
+    "3":{
         "href":"/meals",
         "image":"food.png",
         "altText":"Img"
     }
-]
+}

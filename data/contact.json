@@ -1,14 +1,14 @@
-[
-    {
+{
+    "1":{
         "name":"Address:",
         "description":"123 Lorem Ipsum Cove, Sed Ut City, LI 12345"
     },
-    {
+    "2":{
         "name":"Telephone Number:",
         "description":"1-800-999-9999"
     },
-    {
+    "3":{
         "name":"Fax Number:",
         "description":"1-800-111-1111"
     }
-]
+}

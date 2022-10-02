@@ -1,18 +1,18 @@
-[
-    {
-        "href":"/news",
+{
+    "1":{
+        "href":"/api/latest/",
         "name":"2023 Best Beaches Contest Winners"
     },
-    {
-        "href":"/news",
+    "2":{
+        "href":"/api/latest/",
         "name":"Top 10 Diving Spots"
     },
-    {
-        "href":"/news",
+    "3":{
+        "href":"/api/latest/",
         "name":"Fishing ban to be implemented this year"
     },
-    {
-        "href":"/news",
+    "4":{
+        "href":"/api/latest/",
         "name":"Lifeguard saves child from drowning"
     }
-]
+}

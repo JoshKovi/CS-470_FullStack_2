@@ -1,26 +1,26 @@
-[
-    {
-        "href":"/news",
+{
+    "1":{
+        "href":"/api/tips/",
         "name":"What to bring on the beach?"
     },
-    {
-        "href":"/news",
+    "2":{
+        "href":"/api/tips/",
         "name":"Planning Fun Activities"
     },
-    {
-        "href":"/news",
+    "3":{
+        "href":"/api/tips/",
         "name":"Diving Checklist"
     },
-    {
-        "href":"/news",
+    "4":{
+        "href":"/api/tips/",
         "name":"First Aid"
     },
-    {
-        "href":"/news",
+    "5":{
+        "href":"/api/tips/",
         "name":"How to Build a Sand Castle?"
     },
-    {
-        "href":"/news",
+    "6":{
+        "href":"/api/tips/",
         "name":"Tanning Tips"
     }
-]
+}

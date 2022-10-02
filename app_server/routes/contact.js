@@ -4,5 +4,5 @@ const controller = require('../controllers/contact');
 
 
 /* GET home page. */
-router.get('/', controller.contact);
+router.get('/', controller.contactList);
 module.exports = router;

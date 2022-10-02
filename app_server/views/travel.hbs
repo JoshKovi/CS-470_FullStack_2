@@ -18,7 +18,7 @@
 							<ul id="sites">
 								{{#each trips}}
 								<li>
-									<a href="{{this.href}}"><img src="images/{{this.image}}" alt="{{this.altText}}"></a>
+									<a href="{{this.href}}{{this.code}}"><img src="images/{{this.image}}" alt="{{this.altText}}"></a>
 									<h2><a href="{{this.href}}">{{this.name}}</a></h2>
 									{{{this.description}}}
 								</li>

@@ -1,22 +1,22 @@
-[
-    {
+{
+    "1":{
         "fieldName":"<td>Name:</td>",
         "inputValue": "<td><input type=\"text\" value=\"\" class=\"txtfield\"></td>"
     },
-    {
+    "2":{
         "fieldName":"<td>Email:</td>",
         "inputValue": "<td><input type=\"text\" value=\"\" class=\"txtfield\"></td>"
     },
-    {
+    "3":{
         "fieldName":"<td>Subject:</td>",
         "inputValue": "<td><input type=\"text\" value=\"\" class=\"txtfield\"></td>"
     },
-    {
+    "4":{
         "fieldName":"<td class=\"txtarea\">Message:</td>",
         "inputValue": "<td><textarea></textarea></td>"
     },
-    {
+    "5":{
         "fieldName":"<td></td>",
         "inputValue": "<td><input type=\"submit\" value=\"\" class=\"btn\"></td>"
     }
-]
+}

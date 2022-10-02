@@ -1,6 +1,6 @@
 {
     "1": {
-        "href": "/travel",
+        "href": "/api/trips/",
         "image": "reef1.jpg",
         "altText" :"Img",
         "name":"Gale Reef",
@@ -12,7 +12,7 @@
         "perPerson":"799.00"
     },
     "2":{
-        "href": "/travel",
+        "href": "/api/trips/",
         "image": "reef2.jpg",
         "altText" :"Img",
         "name":"Dawson’s Reef",
@@ -24,7 +24,7 @@
         "perPerson":"1199.00"
     },
     "3":{
-        "href": "/travel",
+        "href": "/api/trips/",
         "image": "reef3.jpg",
         "altText" :"Img",
         "name":"Claire’s REEF",
