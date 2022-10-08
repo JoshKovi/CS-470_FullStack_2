@@ -3,8 +3,11 @@ const router = express.Router();
 
 require("../models/travlr");
 const tripsController = require("../controllers/trips");
-router.route('/trips').get(tripsController.tripsList);
-router.route('/trips/:tripCode').get(tripsController.tripsFindCode);
+router.route('/trips').get(tripsController.tripsList)
+    .post(tripsController.tripsAddTrip);
+router.route('/trips/:tripCode').get(tripsController.tripsFindCode)
+    .put(tripsController.tripsUpdateTrip)
+    .delete(tripsController.tripsDeleteTrip);
 
 
 require("../models/rooms");
