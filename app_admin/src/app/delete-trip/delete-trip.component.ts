@@ -27,7 +27,7 @@ export class DeleteTripComponent implements OnInit {
 
     let response = this.tripService.deleteTrip(tripCode);
     //console.log(response);
-    this.router.navigate(['']);
+    this.router.navigate(['list-trips']);
   }
 
 }
