@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
-const model = mongoose.model('trips');
+const Trip = mongoose.model('trips');
+const User = mongoose.model('users')
 
 //Get: /trips - list all the trips
 const tripsList = async(req,res)=>{
-    model
+    Trip
     .find({}) //Empty Filter
     .exec((err,trips)=>{
         if(!trips){ //Location not found
@@ -20,7 +21,7 @@ const tripsList = async(req,res)=>{
 
 //Get: /trips/:tripCode - return single trip
 const tripsFindCode = async(req,res)=>{
-    model
+    Trip
     .find({'code':req.params.tripCode}) //Empty Filter
     .exec((err,trips)=>{
         if(!trips){ //Location not found
@@ -36,7 +37,9 @@ const tripsFindCode = async(req,res)=>{
 };
 
 const tripsAddTrip = async(req, res) =>{
-    model
+    //console.log('tripsAddTrip invoked with: \n' + req.body);
+    getUser(req, res, (req,res)=>{
+    Trip
         .create({
             code: req.body.code,
             name: req.body.name,
@@ -61,10 +64,12 @@ const tripsAddTrip = async(req, res) =>{
                     .json(trip);
             }
         });
+    });
 }
 const tripsUpdateTrip = async(req,res)=>{
-    console.log(req.body);
-    model
+    console.log('tripsUpdateTrip invoked with: \n' + req.body);
+    getUser(req, res, (req,res)=>{
+    Trip
         .findOneAndUpdate({'code': req.params.tripCode},{
             code: req.body.code,
             name: req.body.name,
@@ -96,19 +101,41 @@ const tripsUpdateTrip = async(req,res)=>{
                     .status(500) //Server error
                     .json(err);
         });
+    });
 }
 const tripsDeleteTrip = async(req,res)=>{
     console.log("Hello: " + req.params.tripCode);
-    model.deleteOne({code: req.params.tripCode})
-    .then(data=>{
-        if(data.deletedCount == 1){
-            res.send(true);
-        }
-        else{
-            res.send(false);
-        }
-    })
+    console.log('tripsDeleteTrip invoked with: \n' + req.body);
+    getUser(req, res, (req,res)=>{
+    Trip
+        .deleteOne({code: req.params.tripCode})
+        .then(data=>{
+            if(data.deletedCount == 1){
+                res.send(true);
+            }
+            else{
+                res.send(false);
+            }
+        })
+    });
+}
 
+const getUser = (req, res, callback) =>{
+    if(req.auth && req.auth.email){
+        User.findOne({email: req.auth.email})
+        .exec((err, user)=>{
+            if(!user){
+                return res.status(404).json({"message": "User not found"});
+            }
+            else if(err){
+                return res.status(404).json(err);
+            }
+            callback(req, res, user.name);
+        })
+    }
+    else{
+        return res.status(404).json({"message": "User not found"});
+    }
 }
 
 

@@ -42,3 +42,10 @@ process.on('SIGTERM', () => {
 });
 
 require('./models/travlr');
+require('./models/about');
+require('./models/contact');
+require('./models/main');
+require('./models/meals');
+require('./models/news');
+require('./models/rooms');
+require('./models/user');
