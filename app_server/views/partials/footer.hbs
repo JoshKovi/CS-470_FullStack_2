@@ -1,0 +1,22 @@
+<div id="footer">
+    <div>
+        {{>navigation}}
+        <div id="connect">
+            <a href="http://pinterest.com/fwtemplates/" target="_blank" class="pinterest"></a> <a href="http://freewebsitetemplates.com/go/facebook/" target="_blank" class="facebook"></a> <a href="http://freewebsitetemplates.com/go/twitter/" target="_blank" class="twitter"></a> <a href="http://freewebsitetemplates.com/go/googleplus/" target="_blank" class="googleplus"></a>
+        </div>
+    </div>
+    <p>
+        © 2023 by BHACCASYONIZTAS BEACH RESORT. All Rights Reserved
+    </p>
+    <script>
+        var pathname;
+        path = (location.pathname.substring(1) == '')? "home" : location.pathname.substring(1);
+        var eleList = document.getElementsByName(path);
+        if(eleList.length >= 1){
+            eleList[0].setAttribute("class", "selected");
+        }
+        if(eleList.length >= 2){
+            eleList[1].setAttribute("class", "active");
+        }
+    </script>
+</div>

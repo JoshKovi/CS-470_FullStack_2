@@ -1,0 +1,26 @@
+{
+    "1":{
+        "href":"/api/tips/",
+        "name":"What to bring on the beach?"
+    },
+    "2":{
+        "href":"/api/tips/",
+        "name":"Planning Fun Activities"
+    },
+    "3":{
+        "href":"/api/tips/",
+        "name":"Diving Checklist"
+    },
+    "4":{
+        "href":"/api/tips/",
+        "name":"First Aid"
+    },
+    "5":{
+        "href":"/api/tips/",
+        "name":"How to Build a Sand Castle?"
+    },
+    "6":{
+        "href":"/api/tips/",
+        "name":"Tanning Tips"
+    }
+}
